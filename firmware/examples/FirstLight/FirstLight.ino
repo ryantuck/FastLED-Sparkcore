@@ -10,16 +10,16 @@ FASTLED_USING_NAMESPACE;
 //
 // Move a white dot along the strip of leds.  This program simply shows how to configure the leds,
 // and then how to turn a single pixel white and then off, moving down the line of pixels.
-// 
+//
 
 // How many leds are in the strip?
-#define NUM_LEDS 60
+#define NUM_LEDS 16
 
 // Data pin that led data will be written out over
 #define DATA_PIN 3
 
 // Clock pin only needed for SPI based chipsets when not using hardware SPI
-//#define CLOCK_PIN 8
+//#define CLOCK_PIN 13
 
 // This is an array of leds.  One item for each led in your strip.
 CRGB leds[NUM_LEDS];
@@ -33,7 +33,7 @@ void setup() {
       // FastLED.addLeds<TM1803, DATA_PIN, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<TM1804, DATA_PIN, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<TM1809, DATA_PIN, RGB>(leds, NUM_LEDS);
-      FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS);
+      // FastLED.addLeds<WS2811, DATA_PIN, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<WS2812, DATA_PIN, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<WS2812B, DATA_PIN, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
@@ -47,16 +47,16 @@ void setup() {
       // FastLED.addLeds<SM16716, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<LPD8806, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<P9813, RGB>(leds, NUM_LEDS);
-      
+
       // FastLED.addLeds<WS2801, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
       // FastLED.addLeds<SM16716, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
-      // FastLED.addLeds<LPD8806, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
+      FastLED.addLeds<LPD8806, DATA_PIN, CLOCK_PIN, RGB>(leds, NUM_LEDS);
 }
 
 // This function runs over and over, and is where you do the magic to light
 // your leds.
 void loop() {
-   // Move a single white led 
+   // Move a single white led
    for(int whiteLed = 0; whiteLed < NUM_LEDS; whiteLed = whiteLed + 1) {
       // Turn our current led on to white, then show the leds
       leds[whiteLed] = CRGB::White;
