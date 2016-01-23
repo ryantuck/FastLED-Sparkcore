@@ -19,7 +19,7 @@ FASTLED_USING_NAMESPACE;
 #define DATA_PIN 3
 
 // Clock pin only needed for SPI based chipsets when not using hardware SPI
-//#define CLOCK_PIN 13
+#define CLOCK_PIN 13
 
 // This is an array of leds.  One item for each led in your strip.
 CRGB leds[NUM_LEDS];
